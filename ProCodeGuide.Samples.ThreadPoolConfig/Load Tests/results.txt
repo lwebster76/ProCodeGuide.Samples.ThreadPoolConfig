@@ -1,0 +1,175 @@
+ 1 Prozessor 8 Kerne 16 logische Prozessoren i9 CPU
+   "minWorkerThreads": 16,
+  "minCompletionPortThreads": 16,
+  "maxWorkerThreads": 32767,
+  "maxCompletionPortThreads": 1000
+}
+
+GetSync 100
+  data_received..................: 249 kB 2.8 kB/s
+     data_sent......................: 39 kB  441 B/s
+     http_req_blocked...............: avg=93.98µs min=2µs  med=5µs    max=1.4ms  p(90)=330.79µs p(95)=397.19µs
+     http_req_connecting............: avg=69.39µs min=0s   med=0s     max=608µs  p(90)=260.6µs  p(95)=322.19µs
+     http_req_duration..............: avg=19s     min=5s   med=17.56s max=28.19s p(90)=27.91s   p(95)=28.19s  
+       { expected_response:true }...: avg=19s     min=5s   med=17.56s max=28.19s p(90)=27.91s   p(95)=28.19s  
+     http_req_failed................: 0.00%  ✓ 0        ✗ 379  
+     http_req_receiving.............: avg=59.05µs min=22µs med=48µs   max=280µs  p(90)=98.19µs  p(95)=121.09µs
+     http_req_sending...............: avg=33.77µs min=8µs  med=24µs   max=266µs  p(90)=56.2µs   p(95)=96.19µs 
+     http_req_tls_handshaking.......: avg=0s      min=0s   med=0s     max=0s     p(90)=0s       p(95)=0s      
+     http_req_waiting...............: avg=19s     min=5s   med=17.56s max=28.19s p(90)=27.91s   p(95)=28.19s  
+     http_reqs......................: 379    4.278335/s
+     iteration_duration.............: avg=20s     min=6s   med=18.56s max=29.19s p(90)=28.91s   p(95)=29.19s  
+     iterations.....................: 379    4.278335/s
+     vus............................: 2      min=2      max=100
+     vus_max........................: 100    min=100    max=100
+
+GetAsync 100
+
+ data_received..................: 801 kB 9.4 kB/s
+     data_sent......................: 127 kB 1.5 kB/s
+     http_req_blocked...............: avg=32.67µs min=2µs   med=5µs  max=1.19ms p(90)=16.1µs p(95)=283.14µs
+     http_req_connecting............: avg=21.62µs min=0s    med=0s   max=485µs  p(90)=0s     p(95)=231.14µs
+     http_req_duration..............: avg=5s      min=4.99s med=5s   max=5.02s  p(90)=5s     p(95)=5s      
+       { expected_response:true }...: avg=5s      min=4.99s med=5s   max=5.02s  p(90)=5s     p(95)=5s      
+     http_req_failed................: 0.00%  ✓ 0         ✗ 1220 
+     http_req_receiving.............: avg=75.61µs min=36µs  med=66µs max=4.25ms p(90)=103µs  p(95)=119.04µs
+     http_req_sending...............: avg=26.43µs min=12µs  med=24µs max=100µs  p(90)=40µs   p(95)=49µs    
+     http_req_tls_handshaking.......: avg=0s      min=0s    med=0s   max=0s     p(90)=0s     p(95)=0s      
+     http_req_waiting...............: avg=5s      min=4.99s med=5s   max=5.02s  p(90)=5s     p(95)=5s      
+     http_reqs......................: 1220   14.356823/s
+     iteration_duration.............: avg=6s      min=6s    med=6s   max=6.02s  p(90)=6s     p(95)=6s      
+     iterations.....................: 1220   14.356823/s
+     vus............................: 10     min=10      max=100
+     vus_max........................: 100    min=100     max=100
+
+
+
+ändere Threadnummer
+ ThreadPool.SetMinThreads(100, 100);
+ "minWorkerThreads": 100,
+  "minCompletionPortThreads": 100,
+  "maxWorkerThreads": 32767,
+  "maxCompletionPortThreads": 1000
+
+
+GetSync 100: 
+  data_received..................: 656 kB 11 kB/s
+     data_sent......................: 103 kB 1.7 kB/s
+     http_req_blocked...............: avg=431.66µs min=1µs  med=4µs  max=4.89ms p(90)=274.3µs p(95)=4.43ms  
+     http_req_connecting............: avg=319.27µs min=0s   med=0s   max=3.78ms p(90)=80.1µs  p(95)=3.32ms  
+     http_req_duration..............: avg=5s       min=5s   med=5s   max=6s     p(90)=5s      p(95)=5.01s   
+       { expected_response:true }...: avg=5s       min=5s   med=5s   max=6s     p(90)=5s      p(95)=5.01s   
+     http_req_failed................: 0.00%  ✓ 0         ✗ 1000 
+     http_req_receiving.............: avg=59.12µs  min=20µs med=44µs max=488µs  p(90)=105µs   p(95)=133µs   
+     http_req_sending...............: avg=45.58µs  min=7µs  med=17µs max=794µs  p(90)=90.1µs  p(95)=207.04µs
+     http_req_tls_handshaking.......: avg=0s       min=0s   med=0s   max=0s     p(90)=0s      p(95)=0s      
+     http_req_waiting...............: avg=5s       min=5s   med=5s   max=6s     p(90)=5s      p(95)=5.01s   
+     http_reqs......................: 1000   16.385165/s
+     iteration_duration.............: avg=6s       min=6s   med=6s   max=7s     p(90)=6s      p(95)=6.01s   
+     iterations.....................: 1000   16.385165/s
+     vus............................: 1      min=1       max=100
+     vus_max........................: 100    min=100     max=100
+
+GetAsync 100
+
+  data_received..................: 656 kB 11 kB/s
+     data_sent......................: 104 kB 1.7 kB/s
+     http_req_blocked...............: avg=321.27µs min=1µs  med=3µs  max=3.76ms p(90)=1.3ms   p(95)=3.24ms  
+     http_req_connecting............: avg=228.77µs min=0s   med=0s   max=2.87ms p(90)=122.3µs p(95)=2.2ms   
+     http_req_duration..............: avg=5s       min=5s   med=5s   max=5.03s  p(90)=5.01s   p(95)=5.03s   
+       { expected_response:true }...: avg=5s       min=5s   med=5s   max=5.03s  p(90)=5.01s   p(95)=5.03s   
+     http_req_failed................: 0.00%  ✓ 0         ✗ 1000 
+     http_req_receiving.............: avg=47.03µs  min=16µs med=36µs max=620µs  p(90)=73.1µs  p(95)=103.04µs
+     http_req_sending...............: avg=75.94µs  min=6µs  med=16µs max=1.14ms p(90)=227µs   p(95)=337.04µs
+     http_req_tls_handshaking.......: avg=0s       min=0s   med=0s   max=0s     p(90)=0s      p(95)=0s      
+     http_req_waiting...............: avg=5s       min=5s   med=5s   max=5.03s  p(90)=5.01s   p(95)=5.03s   
+     http_reqs......................: 1000   16.640676/s
+     iteration_duration.............: avg=6s       min=6s   med=6s   max=6.04s  p(90)=6.01s   p(95)=6.03s   
+     iterations.....................: 1000   16.640676/s
+     vus............................: 100    min=100     max=100
+     vus_max........................: 100    min=100     max=100
+
+
+GetSync 200
+
+     data_received..................: 1.2 MB 14 kB/s
+     data_sent......................: 181 kB 2.1 kB/s
+     http_req_blocked...............: avg=45.93µs min=1µs  med=3µs   max=875µs  p(90)=263.4µs p(95)=369.99µs
+     http_req_connecting............: avg=31.91µs min=0s   med=0s    max=529µs  p(90)=203.4µs p(95)=289.59µs
+     http_req_duration..............: avg=7.48s   min=5s   med=7.69s max=12.34s p(90)=8.95s   p(95)=8.98s   
+       { expected_response:true }...: avg=7.48s   min=5s   med=7.69s max=12.34s p(90)=8.95s   p(95)=8.98s   
+     http_req_failed................: 0.00%  ✓ 0       ✗ 1757 
+     http_req_receiving.............: avg=51.16µs min=14µs med=42µs  max=387µs  p(90)=87µs    p(95)=107µs   
+     http_req_sending...............: avg=29.98µs min=5µs  med=15µs  max=393µs  p(90)=72µs    p(95)=102µs   
+     http_req_tls_handshaking.......: avg=0s      min=0s   med=0s    max=0s     p(90)=0s      p(95)=0s      
+     http_req_waiting...............: avg=7.48s   min=5s   med=7.69s max=12.34s p(90)=8.95s   p(95)=8.98s   
+     http_reqs......................: 1757   20.5786/s
+     iteration_duration.............: avg=8.49s   min=6s   med=8.69s max=13.34s p(90)=9.95s   p(95)=9.98s   
+     iterations.....................: 1757   20.5786/s
+     vus............................: 2      min=2     max=200
+     vus_max........................: 200    min=200   max=200
+
+
+GetAsync 200
+
+ data_received..................: 1.6 MB 19 kB/s
+     data_sent......................: 254 kB 3.0 kB/s
+     http_req_blocked...............: avg=35.58µs min=2µs   med=5µs  max=1.1ms p(90)=19µs p(95)=328.04µs
+     http_req_connecting............: avg=23.18µs min=0s    med=0s   max=559µs p(90)=0s   p(95)=253µs   
+     http_req_duration..............: avg=5s      min=4.99s med=5s   max=5s    p(90)=5s   p(95)=5s      
+       { expected_response:true }...: avg=5s      min=4.99s med=5s   max=5s    p(90)=5s   p(95)=5s      
+     http_req_failed................: 0.00%  ✓ 0        ✗ 2440 
+     http_req_receiving.............: avg=67.77µs min=27µs  med=62µs max=314µs p(90)=97µs p(95)=113µs   
+     http_req_sending...............: avg=27.75µs min=9µs   med=22µs max=169µs p(90)=47µs p(95)=67µs    
+     http_req_tls_handshaking.......: avg=0s      min=0s    med=0s   max=0s    p(90)=0s   p(95)=0s      
+     http_req_waiting...............: avg=5s      min=4.99s med=5s   max=5s    p(90)=5s   p(95)=5s      
+     http_reqs......................: 2440   28.70126/s
+     iteration_duration.............: avg=6s      min=5.99s med=6s   max=6s    p(90)=6s   p(95)=6s      
+     iterations.....................: 2440   28.70126/s
+     vus............................: 1      min=1      max=200
+     vus_max........................: 200    min=200    max=200
+
+GetSync 1000
+
+ data_received..................: 1.4 MB 13 kB/s
+     data_sent......................: 251 kB 2.3 kB/s
+     http_req_blocked...............: avg=1.64s   min=0s   med=3µs    max=13.11s p(90)=13.1s  p(95)=13.1s   
+     http_req_connecting............: avg=1.64s   min=0s   med=0s     max=13.11s p(90)=13.1s  p(95)=13.1s   
+     http_req_duration..............: avg=27s     min=0s   med=24.7s  max=59.63s p(90)=43.63s p(95)=57.36s  
+       { expected_response:true }...: avg=30.86s  min=5s   med=33.48s max=59.63s p(90)=43.64s p(95)=57.36s  
+     http_req_failed................: 12.50% ✓ 299       ✗ 2093  
+     http_req_receiving.............: avg=32.58µs min=0s   med=27µs   max=197µs  p(90)=62µs   p(95)=79µs    
+     http_req_sending...............: avg=78.53µs min=0s   med=38µs   max=1.32ms p(90)=140µs  p(95)=329.44µs
+     http_req_tls_handshaking.......: avg=0s      min=0s   med=0s     max=0s     p(90)=0s     p(95)=0s      
+     http_req_waiting...............: avg=27s     min=0s   med=24.7s  max=59.63s p(90)=43.63s p(95)=57.36s  
+     http_reqs......................: 2392   21.748562/s
+     iteration_duration.............: avg=32.59s  min=2.1s med=34.48s max=1m0s   p(90)=55.9s  p(95)=58.36s  
+     iterations.....................: 2332   21.20303/s
+     vus............................: 2      min=2       max=1000
+     vus_max........................: 1000   min=1000    max=1000
+
+GetAsync 1000
+
+  data_received..................: 8.0 MB 94 kB/s
+     data_sent......................: 1.3 MB 15 kB/s
+     http_req_blocked...............: avg=34.18µs min=1µs   med=4µs  max=1.08ms p(90)=15µs p(95)=320µs
+     http_req_connecting............: avg=22.62µs min=0s    med=0s   max=659µs  p(90)=0s   p(95)=247µs
+     http_req_duration..............: avg=5s      min=4.99s med=5s   max=5.01s  p(90)=5s   p(95)=5s   
+       { expected_response:true }...: avg=5s      min=4.99s med=5s   max=5.01s  p(90)=5s   p(95)=5s   
+     http_req_failed................: 0.00%  ✓ 0          ✗ 12196 
+     http_req_receiving.............: avg=58.91µs min=20µs  med=54µs max=658µs  p(90)=87µs p(95)=101µs
+     http_req_sending...............: avg=23.37µs min=6µs   med=18µs max=358µs  p(90)=41µs p(95)=61µs 
+     http_req_tls_handshaking.......: avg=0s      min=0s    med=0s   max=0s     p(90)=0s   p(95)=0s   
+     http_req_waiting...............: avg=5s      min=4.99s med=5s   max=5.01s  p(90)=5s   p(95)=5s   
+     http_reqs......................: 12196  143.460417/s
+     iteration_duration.............: avg=6s      min=5.99s med=6s   max=6.01s  p(90)=6s   p(95)=6s   
+     iterations.....................: 12196  143.460417/s
+     vus............................: 10     min=10       max=1000
+     vus_max........................: 1000   min=1000     max=1000
+
+
+- In the case of the asynchronous action method, we were able to process more requests as compared to the synchronous action method.
+- So by increasing the value of min threads in the thread pool( ThreadPool.SetMinThreads(1000, 1000)) we are able to scale ASP.NET Core application.
+- By specifying 100 min threads as the default in ThreadPool we specify that if there is a new request and all the threads in the thread pool are busy then it can instantly spawn up to 100 new threads without any delay to better scale ASP.NET Core application.
+- This technique to increase the minimum threads in the ThreadPool is like a patchwork and should not be considered as a permanent solution as we don’t want so many threads running when the CPU can only process 16 threads (my machine number) at any given time.
+- Also, an increase in the number of threads is an expensive process and should be done with lots of caution as if we end up creating lots of threads then it can consume a lot of memory and can bring an application or system itself to a halt.

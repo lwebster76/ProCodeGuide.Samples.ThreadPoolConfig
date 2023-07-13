@@ -16,6 +16,7 @@ namespace ProCodeGuide.Samples.ThreadPoolConfig.Controllers
         public WeatherForecastController(ILogger<WeatherForecastController> logger)
         {
             _logger = logger;
+            
         }
 
         [HttpGet("GetSync")]
