@@ -18,8 +18,8 @@ export let options = {
     insecureSkipTLSVerify: true,
     noConnectionReuse: false,
     stages: [
-        { duration: '10s', target: 100 }, // simulate ramp-up traffic 
-        { duration: '60s', target: 100 }, // stay 
+        { duration: '10s', target: 1000 }, // simulate ramp-up traffic 
+        { duration: '60s', target: 1000 }, // stay 
         { duration: '10s', target: 0 }, // ramp down to 0 users
     ],
     // thresholds: { // checks during the test

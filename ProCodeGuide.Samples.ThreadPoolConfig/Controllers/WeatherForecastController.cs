@@ -22,7 +22,7 @@ namespace ProCodeGuide.Samples.ThreadPoolConfig.Controllers
         [HttpGet("GetSync")]
         public IEnumerable<WeatherForecast> GetSync()
         {
-            Thread.Sleep(5000);
+            Thread.Sleep(1);
             return Enumerable.Range(1, 5).Select(index => new WeatherForecast
             {
                 Date = DateTime.Now.AddDays(index),
@@ -34,7 +34,7 @@ namespace ProCodeGuide.Samples.ThreadPoolConfig.Controllers
         [HttpGet("GetAsync")]
         public async Task<IEnumerable<WeatherForecast>> GetAsync()
         {
-            await Task.Delay(5000);
+            await Task.Delay(1);
             return Enumerable.Range(1, 5).Select(index => new WeatherForecast
             {
                 Date = DateTime.Now.AddDays(index),
